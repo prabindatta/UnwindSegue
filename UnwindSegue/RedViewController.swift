@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class RedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,15 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    @IBAction func unwindToRed(segue: UIStoryboardSegue) {
+        if let blueViewController = segue.source as? BlueViewController {
+            print("Blue: Coming from BLUE")
+        }
+        else if let redViewController = segue.source as? GreenViewController {
+            print("Red: Coming from RED")
+        }
+    }
 
 }
 
