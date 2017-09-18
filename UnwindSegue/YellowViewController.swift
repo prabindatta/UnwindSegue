@@ -1,19 +1,17 @@
 //
-//  BlueViewController.swift
+//  YellowViewController.swift
 //  UnwindSegue
 //
-//  Created by Prabin K Datta on 11/09/17.
+//  Created by Prabin K Datta on 15/09/17.
 //  Copyright © 2017 Prabin K Datta. All rights reserved.
 //
 
 import UIKit
 
-protocol BlueViewControllerDelegate {
-    func callPopToRootViewController();
-}
+class YellowViewController: UIViewController {
 
-class BlueViewController: UIViewController, BlueViewControllerDelegate {
-
+    var delegate: BlueViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,19 +24,18 @@ class BlueViewController: UIViewController, BlueViewControllerDelegate {
     }
     
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let yellowVC:YellowViewController =  segue.destination as! YellowViewController
-        yellowVC.delegate = self
     }
-    
-    func callPopToRootViewController() {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
+    */
 
+    @IBAction func didTapPopBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        delegate?.callPopToRootViewController()
+    }
 }
